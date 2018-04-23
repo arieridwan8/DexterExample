@@ -81,6 +81,15 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
                         }
                     })
                     .check();
+        } else {
+            getLocation();
+            if (isLocationEnable()) {
+                double latitude = getLatitude();
+                double longitude = getLongitude();
+                Toast.makeText(getApplicationContext(), "Your Location is - \nLat: " + latitude + "\nLong: " + longitude, Toast.LENGTH_LONG).show();
+            } else {
+                showSettingsAlert();
+            }
         }
     }
 
